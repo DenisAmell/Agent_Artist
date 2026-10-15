@@ -1,0 +1,4 @@
+openai>=1.60
+python-dotenv
+pillow
+jupyter

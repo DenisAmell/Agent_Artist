@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Непереводимое — выставка агентов-художников</title>
+  <meta name="description" content="Многоагентная система рисует непереводимые слова, а слепой VLM-критик угадывает их смысл.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Выставка многоагентной системы · Yandex AI Studio</p>
+    <h1>Непереводимое</h1>
+    <p class="lead">Может ли картина перевести то, что не переводится словами? Нейросети-художники рисуют слова, у которых
+      нет перевода, а нейросеть-зритель смотрит на картину, <em>не зная слова</em>, и пытается угадать его смысл.</p>
+    <p id="intro" class="intro"></p>
+  </header>
+
+  <section class="how">
+    <h2>Как это устроено</h2>
+    <ol class="pipeline">
+      <li><span class="ico">🎨</span><b>Художник</b><small id="m-artist"></small>придумывает визуальную метафору</li>
+      <li><span class="ico">🛠</span><b>Промпт-инженер</b><small id="m-engineer"></small>спорит, упрощает и пишет промпт</li>
+      <li><span class="ico">🖼</span><b>Генератор</b><small id="m-image"></small>рисует картину</li>
+      <li><span class="ico">👁</span><b>Слепой критик</b><small id="m-critic"></small>видит только картину и угадывает смысл</li>
+      <li><span class="ico">⚖️</span><b>Судья</b><small id="m-judge"></small>сравнивает догадку со значением: 0–10</li>
+      <li><span class="ico">🏛</span><b>Куратор</b><small id="m-curator"></small>выбирает версию и пишет этикетку</li>
+    </ol>
+    <p class="note">Если зритель не понял картину (балл ниже <span id="target">8</span>), его интерпретация и совет судьи
+      возвращаются художнику и инженеру — и начинается новый спор. Не больше <span id="maxit">3</span> версий на слово.</p>
+  </section>
+
+  <main id="works"></main>
+
+  <footer id="footer"></footer>
+
+  <div id="lightbox" class="lightbox" hidden><img alt=""></div>
+
+  <script src="data/gallery.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
